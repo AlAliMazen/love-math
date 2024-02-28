@@ -34,6 +34,15 @@ To log into the Heroku toolbelt CLI:
 
 You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
+
+
+## how to set up GitHib on Mac for first time
+
+setting up a git in a mac is very easy since the system itself has a built in Git and it is possible to check it using the `git -v` in the terminal. 
+A very useful website which walks you step by step in setting up a GitHub on the GitHub online is [setting up Git & GitHub](https://diptendud.medium.com/github-setup-on-mac-os-8aec9e46d15c)
+
+
+
 ---
 
 Happy coding!
