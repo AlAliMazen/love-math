@@ -84,6 +84,9 @@ function incrementScore(){
 }
 
 function incrementWrongAnswer(){
+    let wrongAnswers=parseInt(document.getElementById('incorrect-score').innerText);
+    wrongAnswers+=1;
+    document.getElementById('incorrect-score').innerText=wrongAnswers;
 
 }
 function displayAdditionQuestion(operand1, operand2){
@@ -94,9 +97,17 @@ function displayAdditionQuestion(operand1, operand2){
 
 }
 function displaySubtractQuestion(operand1, operand2){
-    document.getElementById('operand1').textContent=operand1;
-    document.getElementById('operand2').textContent=operand2;
+    
+    document.getElementById('operand1').textContent=operand1>operand2?operand1:operand2;
+    document.getElementById('operand2').textContent=operand1>operand2?operand2:operand1;
     document.getElementById('operator').textContent='-';
+
+    /**
+     * in case we would like to get negative number in the result, then run the following lines, otherwise keep it commented
+     */
+    /*document.getElementById('operand1').textContent=operand1;
+    document.getElementById('operand2').textContent=operand2;
+    document.getElementById('operator').textContent='-';*/
 }
 function displayMultiplyQuesiton(operand1, operand2){
     document.getElementById('operand1').textContent=operand1;
@@ -104,7 +115,16 @@ function displayMultiplyQuesiton(operand1, operand2){
     document.getElementById('operator').textContent='x';
 }
 function dispolayDivisionQuestion(operand1, operand2){
-    document.getElementById('operand1').textContent=operand1;
-    document.getElementById('operand2').textContent=operand2;
+
+    document.getElementById('operand1').textContent=operand1>operand2?operand1:operand2;
+    document.getElementById('operand2').textContent=operand1>operand2?operand2:operand1;
     document.getElementById('operator').textContent='/';
+
+    /**
+     * in case we would like to get negative number in the result, then run the following lines, otherwise keep it commented
+     */
+    /*document.getElementById('operand1').textContent=operand1;
+    document.getElementById('operand2').textContent=operand2;
+    document.getElementById('operator').textContent='/';*/
+
 }
