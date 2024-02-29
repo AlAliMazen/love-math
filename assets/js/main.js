@@ -14,8 +14,13 @@ document.addEventListener("DOMContentLoaded", function(){
         })
     }
 })
+/**
+ * the main function to keep game running and it generates two random numbers 
+ * to be used later in the code
+ */
 function runGame(){
-
+    let num1=Math.floor(Math.random()*25)+1;
+    let num2=Math.floor(Math.random()*25)+1;
 }
 function checckAnswer(){
 
