@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", function(){
     for(let button of buttons){
         button.addEventListener("click",function(){
             if(this.getAttribute("data-type")==="submit"){
-                alert("You clicked submit!")
+                checckAnswer();
+                //alert("You clicked submit!")
             }else{
                 let gameType=this.getAttribute("data-type");
                 runGame(gameType);
@@ -36,15 +37,46 @@ function runGame(gameType){
         throw (`Aborting ...`);
     }
 }
+/**
+ * check if the answer given by user is same as the return value from claculateCorrectAnswer function.
+ */
 function checckAnswer(){
+    let usrAnswer = parseFloat(document.getElementById('answer-box').value);
+    let result=calculateCorrectAnswer();
 
+    if(usrAnswer===result[0]){
+        alert("Your answer is correct")
+    }else{
+        alert("You missed the correct answer")
+    }
+    runGame(result[1]);
 }
-
+/**
+ * calculates the right answer which will be compared to the users guess.
+ */
 function calculateCorrectAnswer(){
+    let operand1=parseInt(document.getElementById('operand1').innerText);
+    let operand2=parseInt(document.getElementById('operand2').innerText);
+    let operator=document.getElementById('operator').innerText;
+    let result=[];
 
+    if(operator=="+"){
+        result = [operand1+operand2,"addition"];
+    }else if(operator=="-"){
+        result =  [operand1-operand2,"subtraction"];
+    }else if(operator=="x"){
+        result =  [operand1*operand2,"multiply"];
+    }else if(operator=="/"){
+        result =  [operand1/operand2,"division"];
+    }else{
+        alert(`Unknown Game Type ${gameType}`);
+        throw (`Aborting ...`);
+    }
+    return result;
 }
 function incrementScore(){
-
+    let score=parseInt(document.getElementById('score').innerText);
+    
 }
 
 function incrementWrongAnswer(){
