@@ -46,8 +46,10 @@ function checckAnswer(){
 
     if(usrAnswer===result[0]){
         alert("Your answer is correct")
+        incrementScore();
     }else{
-        alert("You missed the correct answer")
+        alert("You missed the correct answer");
+        incrementWrongAnswer();
     }
     runGame(result[1]);
 }
@@ -76,7 +78,9 @@ function calculateCorrectAnswer(){
 }
 function incrementScore(){
     let score=parseInt(document.getElementById('score').innerText);
-    
+    score+=1;
+    document.getElementById('score').innerText=score;
+
 }
 
 function incrementWrongAnswer(){
