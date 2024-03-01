@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(){
     for(let button of buttons){
         button.addEventListener("click",function(){
             if(this.getAttribute("data-type")==="submit"){
-                checckAnswer();
+                checkAnswer();
                 //alert("You clicked submit!")
             }else{
                 let gameType=this.getAttribute("data-type");
@@ -14,6 +14,12 @@ document.addEventListener("DOMContentLoaded", function(){
             }
         })
     }
+
+    document.getElementById('answer-box').addEventListener("keydown", function(event){
+        if(event.key==="Enter"){
+            checkAnswer();
+        }
+    })
     runGame("addition");
 })
 /**
@@ -21,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function(){
  * to be used later in the code
  */
 function runGame(gameType){
-    
-
+    document.getElementById('answer-box').value="";
+    document.getElementById('answer-box').focus();
     let num1=Math.floor(Math.random()*25)+1;
     let num2=Math.floor(Math.random()*25)+1;
     
@@ -42,15 +48,14 @@ function runGame(gameType){
 /**
  * check if the answer given by user is same as the return value from claculateCorrectAnswer function.
  */
-function checckAnswer(){
+function checkAnswer(){
     let usrAnswer = parseFloat(document.getElementById('answer-box').value);
     let result=calculateCorrectAnswer();
 
     if(usrAnswer===result[0]){
         alert("Your answer is correct")
         incrementScore();
-        debugger;
-        document.getElementById('answer-box').value="";
+        
     }else{
         alert("You missed the correct answer");
         incrementWrongAnswer();
