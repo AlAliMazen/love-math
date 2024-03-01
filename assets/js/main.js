@@ -21,9 +21,11 @@ document.addEventListener("DOMContentLoaded", function(){
  * to be used later in the code
  */
 function runGame(gameType){
+    
+
     let num1=Math.floor(Math.random()*25)+1;
     let num2=Math.floor(Math.random()*25)+1;
-
+    
     if(gameType=="addition"){
         displayAdditionQuestion(num1,num2);
     }else if(gameType=="subtraction"){
@@ -47,6 +49,8 @@ function checckAnswer(){
     if(usrAnswer===result[0]){
         alert("Your answer is correct")
         incrementScore();
+        debugger;
+        document.getElementById('answer-box').value="";
     }else{
         alert("You missed the correct answer");
         incrementWrongAnswer();
