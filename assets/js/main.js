@@ -124,10 +124,15 @@ function displayMultiplyQuesiton(operand1, operand2){
     document.getElementById('operator').textContent='x';
 }
 function dispolayDivisionQuestion(operand1, operand2){
-
+    /**
+     * following 3 lines can result in floating result and the answer won't match. to avoid this
+     * either multiply the two operand together and assign the first operand to the result OR
+     * check if the firstcrandom number is divisible by the second one.
+     */
+    /*
     document.getElementById('operand1').textContent=operand1>operand2?operand1:operand2;
     document.getElementById('operand2').textContent=operand1>operand2?operand2:operand1;
-    document.getElementById('operator').textContent='/';
+    document.getElementById('operator').textContent='/';*/
 
     /**
      * in case we would like to get negative number in the result, then run the following lines, otherwise keep it commented
@@ -135,5 +140,14 @@ function dispolayDivisionQuestion(operand1, operand2){
     /*document.getElementById('operand1').textContent=operand1;
     document.getElementById('operand2').textContent=operand2;
     document.getElementById('operator').textContent='/';*/
+
+    //better alternative
+    if(operand1%operand2===0){
+	    document.getElementById("operand1").textContent = operand1; 
+	}else{
+	     document.getElementById("operand1").textContent = operand1*operand2;
+	}
+		document.getElementById("operand2").textContent = operand2;
+	document.getElementById("operator").textContent = "/";
 
 }
